@@ -17,7 +17,7 @@ tags:
   description: Todo sobre personas
   externalDocs:
     description: Encuentra mas
-    url: https://github.com/JMAppsIA/reto-rimac
+    url: https://github.com/JMAppsIA/rimac-challenge
 paths:
   /challenge/personas/obtener/{idPersona}:
     get:
