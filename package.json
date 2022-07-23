@@ -1,0 +1,26 @@
+{
+  "name": "retorimac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "jasmine",
+    "start": "sls offline start --stage DEV",
+    "deploy": "serverless deploy --stage DEV"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "dotenv": "^16.0.1",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.1181.0",
+    "axios": "^0.27.2",
+    "jasmine": "^4.2.1",
+    "serverless": "^3.21.0",
+    "serverless-offline": "^8.8.1",
+    "uuid": "^8.3.2"
+  }
+}

@@ -1,0 +1,33 @@
+service: retorimac
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
+  region: ${self:custom.regionName.${self:provider.stage}}
+  stage: ${opt:stage,'DEV'}
+  apiGateway:
+    shouldStartNameWithService: true
+
+  #Environment Variables  
+  environment: ${file(configuration/serverless/variables.yml)}  
+
+# Custom Variables
+custom:  
+  regionName:
+    DEV: us-east-1
+    us-east-1: UEAST1
+  dynamoTableName: ${ssm:/reto-rimac/dev/dynamo-table-name}
+  swapiBaseUrl: ${ssm:/reto-rimac/dev/star-wars-base-url}
+
+plugins:
+  - serverless-offline
+
+package:
+  excludeDevDependencies: true
+  include:
+  - node_modules/**
+
+functions: ${file(configuration/serverless/functions.yml)} 
+         
